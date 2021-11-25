@@ -1,0 +1,11 @@
+name: tcc-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - numpy
+  - scipy
+  - scikit-learn
+  - autopep8
+prefix: /home/maribondo/anaconda3/envs/tcc-env
