@@ -1,3 +1,3 @@
-src/data
-src/output
-src/__pycache__
+src/data/
+src/output*/
+src/__pycache__/

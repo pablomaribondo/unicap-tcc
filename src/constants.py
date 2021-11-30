@@ -2,29 +2,37 @@ BASE_PATH = './src'
 DATA_PATH = f'{BASE_PATH}/data'
 OUTPUT_PATH = f'{BASE_PATH}/output'
 
-TRAINING_MATRIX = 'training_matrix'
-TEST_MATRIX = 'test_matrix'
-TRAINING_LABELS = 'training_labels'
-TEST_LABELS = 'test_labels'
-KNN_MODELS = 'knn_models'
-BAG_MODELS = 'bag_models'
-RF_MODELS = 'rf_models'
-ET_MODELS = 'et_models'
-MLP_MODELS = 'mlp_models'
-SVC_MODELS = 'svc_models'
-VOTING_MODEL = 'voting_model'
-OUTPUT_EXTENSION = 'pickle'
+TRAINING_RATIO = 8
+TEST_RATIO = 2
 
-OUTPUT_FILES = {
-    TRAINING_MATRIX: f'{TRAINING_MATRIX}.{OUTPUT_EXTENSION}',
-    TEST_MATRIX: f'{TEST_MATRIX}.{OUTPUT_EXTENSION}',
-    TRAINING_LABELS: f'{TRAINING_LABELS}.{OUTPUT_EXTENSION}',
-    TEST_LABELS: f'{TEST_LABELS}.{OUTPUT_EXTENSION}',
-    KNN_MODELS: f'{KNN_MODELS}.{OUTPUT_EXTENSION}',
-    BAG_MODELS: f'{BAG_MODELS}.{OUTPUT_EXTENSION}',
-    RF_MODELS: f'{RF_MODELS}.{OUTPUT_EXTENSION}',
-    ET_MODELS: f'{ET_MODELS}.{OUTPUT_EXTENSION}',
-    MLP_MODELS: f'{MLP_MODELS}.{OUTPUT_EXTENSION}',
-    SVC_MODELS: f'{SVC_MODELS}.{OUTPUT_EXTENSION}',
-    VOTING_MODEL: f'{VOTING_MODEL}.{OUTPUT_EXTENSION}',
+PARAMS_GRID = {
+    'KNN':  {
+        'n_neighbors': [10, 50, 100, 200, 500],
+        'weights': ['uniform', 'distance'],
+        'algorithm': ['ball_tree', 'kd_tree', 'brute']
+    },
+    'BAG': {
+        'n_estimators': [10, 50, 100, 200, 500]
+    },
+    'RF': {
+        'n_estimators': [10, 50, 100, 200, 500],
+        'max_features': ['auto', 'sqrt', 'log2']
+    },
+    'ET': {
+        'n_estimators': [10, 50, 100, 200, 500],
+        'max_features': ['auto', 'sqrt', 'log2']
+    },
+    'MLP': {
+        'max_iter': [1, 5, 50, 100, 200],
+        'hidden_layer_sizes': [(10,), (20,)],
+        'activation': ['tanh', 'relu'],
+        'solver': ['sgd', 'adam'],
+        'alpha': [0.0001, 0.05],
+        'learning_rate': ['constant', 'adaptive'],
+    },
+    'SVC': {
+        'C': [0.1, 1, 10, 100, 1000],
+        'gamma': [1, 0.1, 0.01, 0.001, 0.0001],
+        'kernel': ['rbf']
+    }
 }

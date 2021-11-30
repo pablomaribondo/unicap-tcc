@@ -8,4 +8,6 @@ dependencies:
   - scipy
   - scikit-learn
   - autopep8
+  - matplotlib
+  - tensorflow
 prefix: /home/maribondo/anaconda3/envs/tcc-env
